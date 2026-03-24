@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cube Calculator</title>
+    <script>
+        function calculateCube() {
+            // Get the input value from the element with id 'numberInput'
+            var numString = document.getElementById('numberInput').value;
+
+            // Check if the input string is empty or contains only whitespace
+            if (numString.trim() === "") {
+                document.getElementById('result').innerText = "Enter something";
+                return; // Stop function execution
+            }
+
+            // Convert the input string to a number
+            var number = Number(numString);
+
+            // Check if the conversion resulted in a valid number (e.g., not NaN)
+            if (isNaN(number)) {
+                 document.getElementById('result').innerText = "Please enter a valid number";
+                 return;
+            }
+
+            // Calculate the cube
+            var cube = number * number * number;
+
+            // Display the result
+            document.getElementById('result').innerText = 'Cube: ' + cube;
+        }
+    </script>
+</head>
+<body>
+    <h2>Enter a number to cube:</h2>
+    <!-- The input type "number" provides built-in validation features -->
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    
+    <!-- The onclick event calls the JavaScript function -->
+    <button onclick="calculateCube()">Cube it!</button>
+
+    <!-- A paragraph element to display the result or error message -->
+    <p id="result"></p>
+</body>
+</html>
